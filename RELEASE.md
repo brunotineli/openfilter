@@ -3,6 +3,20 @@ OpenFilter Library release notes
 
 ## [Unreleased]
 
+
+## v0.1.6 - 2025-07-16
+
+### Added
+- `OpenTelemetry` support to the `OpenFilter`.
+  - For `OpenTelemetry` usage:
+    - `TELEMETRY_EXPORTER_TYPE`- OpenTelemetry exporter (eg:console,gcm,OTLP_GRPC,OTLP_HTTP)
+    - `OTEL_EXPORTER_OTLP_GRPC_ENDPOINT` - If the client is OTLP_GRPC           
+    - `OTEL_EXPORTER_OTLP_HTTP_ENDPOINT` - If the client is OTLP_HTTP
+    - `OTLP_GRPC_ENDPOINT_SECURITY` - Sets OpenTelemtry GRPC client endpoint security 
+    - `TELEMETRY_EXPORTER_ENABLED` - Enable/disable OpenTelemetry
+    - `EXPORT_INTERVAL` - OpenTelemetry metrics Export interval
+    - `PROJECT_ID` - GCP project
+
 ## v0.1.5 - 2025-07-14
 
 ### Added
@@ -17,9 +31,7 @@ OpenFilter Library release notes
 
 ### Updated
 - `OpenLineage` support to the `OpenFilter`.
-  - `run_id` updated the code so that events have the same run_id
-
-
+  - `run_id` updated the code so that events have the same run_id            
 
 ## v0.1.4 - 2025-07-07
 

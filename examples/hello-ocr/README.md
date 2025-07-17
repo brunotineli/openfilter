@@ -4,10 +4,17 @@
 - [Hello World OCR Demo](#hello-world-ocr-demo)
   - [Overview](#overview)
   - [Requirements](#requirements)
+  - [Notes before running](#notes-before-running)
   - [Running the demo](#running-the-demo) 
     - [Steps](#steps)
   - [Running the demo pipelines](#running-the-demo-pipelines) 
     - [Steps for minimal pipelines](#steps-for-minimal-pipelines)   
+  - [Testing](#testing)
+  - [Mini Test plan](#mini-test-plan)
+    - [Scope](#scope)
+    - [Flows to be tested](#flows-to-be-tested)
+    - [Flows that won't be tested](#flows-that-wont-be-tested)
+    - [Testing Assumptions](#testing-assumptions)
 
 ## Overview
 
@@ -99,3 +106,50 @@ openfilter run \
 ```bash
 python filter_hello_ocr/main_minimal_script.py
 ```
+
+## Mini Test plan
+
+The objective is to give an overall vision of what it's gonna be tested.
+
+### Scope
+
+- hello-ocr filters: VideoIn, FilterOpticalCharacterRecognition, and VideoOut
+
+### Flows to be tested
+
+- VideoIn filter
+- FilterOpticalCharacterRecognition filter
+- VideoOut filter
+
+### Flows that won't be tested
+
+- All the filters, except the ones mentioned above
+
+### Testing Assumptions
+
+- Linux environment
+- [Requirements](#requirements) installed
+- Validate input video file such as [hello.mov](hello.mov)
+- Web browser to visualize the video. For example: Firefox or Chrome.
+
+## Testing
+
+Run tests locally:
+```bash
+make test
+```
+
+Or run a specific test file:
+
+```bash
+pytest -v tests/test_filter_ocr.py
+```
+
+Tests cover:
+
+* Each filter used inside the hello-ocr filter example: VideoIn, FilterOpticalCharacterRecognition, and VideoOut
+* All the filters connected
+* OCR can be extract the right text
+* Filter output delivered
+
+## Inspecting Output, and Metrics

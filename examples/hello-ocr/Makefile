@@ -22,7 +22,9 @@ PIPELINE_CLI := \
 	- filter_optical_character_recognition.filter.FilterOpticalCharacterRecognition \
 		--ocr_engine easyocr \
 		--forward_ocr_texts true \
-	- Webvis
+	- Webvis \
+	    --exit_time 3
+
 
 # ---------------------------------
 # Targets

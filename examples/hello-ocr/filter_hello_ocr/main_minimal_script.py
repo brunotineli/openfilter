@@ -18,4 +18,4 @@ if __name__ == '__main__':
         (Webvis, dict(
             sources='tcp://localhost:5552',
         )),
-    ])
+    ], exit_time=3)

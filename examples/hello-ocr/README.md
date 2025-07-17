@@ -9,7 +9,7 @@
 
 ## Overview
 
-This example demonstrates serveral filter types easily composed together to achieve a simple task: run OCR on a simple text video
+This example demonstrates several filter types easily composed together to achieve a simple task: run OCR on a simple text video
 
 ```mermaid
 flowchart LR
@@ -28,17 +28,17 @@ This example demonstrates 3 filters composed together to achieve our **hello wor
 * **Webviz Filter**
   A **Utility** filter which displays the frames passed to it on a live feed in the browser
 
-## Running the demo
-
-### Requirements
-
-- [Python 3.11](https://www.python.org/downloads/release/python-3110/)
+## Requirements
 - Linux system
+- [Python 3.11](https://www.python.org/downloads/release/python-3110/)
 
+## Notes before running
 > Note: This project is designed with Linux support in mind. It should run on macOS, but your mileage may vary.
 
+## Running the demo
+
 ### Steps
-1. [Optional] Create a virtual environemnt using a tool of your choosing (`venv` is used here)
+1. [Optional] Create a virtual environment using a tool of your choosing (`venv` is used here)
 ```
 python -m venv venv
 source venv/bin/activate
@@ -65,3 +65,35 @@ python filter_hello_ocr/main.py
 ```
 
 We encourage the inspect the content of [filter_hello_ocr/main.py](filter_hello_ocr/main.py) for a code example!
+
+## Running the demo pipelines
+
+The demo pipelines can be run using the makefile command (make run_cli) or python command (python filter_hello_ocr/main_minimal_script.py).
+Basically they are a execution without the loop, so they will run once and exit. 
+
+### Steps for CLIT
+1. [Optional] Create a virtual environment using a tool of your choosing (`venv` is used here)
+```
+python -m venv venv
+source venv/bin/activate
+```
+2. run `make install`
+3. run `make run_cli`
+4. visit `http://localhost:8000`
+
+`make run_cli` executes the filter pipeline via the openfilter CLI as follows:
+
+```bash
+openfilter run \
+	- VideoIn \
+		--sources 'file://hello.mov' \
+	- filter_optical_character_recognition.filter.FilterOpticalCharacterRecognition \
+		--ocr_engine easyocr \
+		--forward_ocr_texts true \
+	- Webvis
+```
+
+#### Alternatively, you may use the `Filter.run_multi` utility as follows:
+```bash
+python filter_hello_ocr/main_minimal_script.py
+```

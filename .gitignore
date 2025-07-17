@@ -140,3 +140,6 @@ telemetry/
 cache/
 Reports/
 _authors.txt
+
+# Custom
+.idea

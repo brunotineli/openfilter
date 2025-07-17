@@ -16,6 +16,14 @@ PIPELINE := \
 		--forward_ocr_texts true \
 	- Webvis
 
+PIPELINE_CLI := \
+	- VideoIn \
+		--sources 'file://hello.mov' \
+	- filter_optical_character_recognition.filter.FilterOpticalCharacterRecognition \
+		--ocr_engine easyocr \
+		--forward_ocr_texts true \
+	- Webvis
+
 # ---------------------------------
 # Targets
 # ---------------------------------
@@ -33,6 +41,10 @@ install:  ## Install package with dev dependencies
 run: # Open the browser and run the filters
 	( sleep 3 && xdg-open http://localhost:8000 >/dev/null 2>&1 & )
 	openfilter run $(PIPELINE)
+
+run_cli: # Open the browser and run the filters
+	( sleep 3 && xdg-open http://localhost:8000 >/dev/null 2>&1 & )
+	openfilter run $(PIPELINE_CLI)
 
 .PHONY: test
 test:  ## Run unit tests

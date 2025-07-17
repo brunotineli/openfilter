@@ -17,6 +17,11 @@ Jump to:
 
 ---
 
+## Used example: hello-ocr
+
+The used example was the [hello-ocr](./examples/hello-ocr).
+
+
 ## Features
 
 - 🔁 Easily pluggable filter components

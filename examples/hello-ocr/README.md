@@ -3,9 +3,11 @@
 ## Table of Contents
 - [Hello World OCR Demo](#hello-world-ocr-demo)
   - [Overview](#overview)
-  - [Running the demo](#running-the-demo)
-    - [Requirements](#requirements)
+  - [Requirements](#requirements)
+  - [Running the demo](#running-the-demo) 
     - [Steps](#steps)
+  - [Running the demo pipelines](#running-the-demo-pipelines) 
+    - [Steps for minimal pipelines](#steps-for-minimal-pipelines)   
 
 ## Overview
 
@@ -71,7 +73,7 @@ We encourage the inspect the content of [filter_hello_ocr/main.py](filter_hello_
 The demo pipelines can be run using the makefile command (make run_cli) or python command (python filter_hello_ocr/main_minimal_script.py).
 Basically they are a execution without the loop, so they will run once and exit. 
 
-### Steps for CLIT
+### Steps for minimal pipelines
 1. [Optional] Create a virtual environment using a tool of your choosing (`venv` is used here)
 ```
 python -m venv venv

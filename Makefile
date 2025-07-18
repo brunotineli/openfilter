@@ -14,7 +14,7 @@ build-wheel:  ## Build python wheel
 
 .PHONY: test
 test:  ## Run basic unit tests
-	pytest -v --cov=tests -s tests
+	pytest -v --cov=tests -s tests --ignore=examples/
 
 .PHONY: test-all
 test-all:  ## Run all unit tests

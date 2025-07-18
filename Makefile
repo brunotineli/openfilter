@@ -25,7 +25,7 @@ test-all:  ## Run all unit tests
 .PHONY: test-coverage
 test-coverage:  ## Run unit tests and generate coverage report
 	@mkdir -p Reports
-	@pytest -v --cov=tests --junitxml=Reports/coverage.xml --cov-report=json:Reports/coverage.json
+	@pytest -v --cov=tests --ignore=examples/ --junitxml=Reports/coverage.xml --cov-report=json:Reports/coverage.json
 	@jq -r '["File Name", "Statements", "Missing", "Coverage%"], (.files | to_entries[] | [.key, .value.summary.num_statements, .value.summary.missing_lines, .value.summary.percent_covered_display]) | @csv'  Reports/coverage.json >  Reports/coverage_report.csv
 	@jq -r '["TOTAL", (.totals.num_statements // 0), (.totals.missing_lines // 0), (.totals.percent_covered_display // "0")] | @csv'  Reports/coverage.json >>  Reports/coverage_report.csv
 
